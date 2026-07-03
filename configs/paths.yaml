@@ -5,3 +5,7 @@ raw_data:
 processed_data:
     train_data: "../data/processed/train.csv"
     test_data : "../data/processed/test.csv"
+
+features_data:
+    train_data: "../data/features/train_features.csv"
+    test_data: "../data/features/test_features.csv"
