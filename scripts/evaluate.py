@@ -18,6 +18,11 @@ def evaluate_classifier(
     
     y_train_pred = pipeline.predict(X_train)
     y_test_pred = pipeline.predict(X_test)
+
+    try:
+        y_test_prob = pipeline.predict_proba(X_test)
+    except AttributeError:
+        y_test_prob = pipeline.decision_function(X_test)
     
     row = {'Model': name}
     
@@ -31,5 +36,6 @@ def evaluate_classifier(
     
     row['_pipeline'] = pipeline
     row['_test_pred'] = y_test_pred
+    row['_test_prob'] = y_test_prob
     
     return row
